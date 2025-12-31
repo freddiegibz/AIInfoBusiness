@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Plain-English AI Playbook for Professionals Who Refuse to Be Left Behind</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-cream: #FAF8F5;
+            --color-warm-white: #FFFEFA;
+            --color-charcoal: #2C2C2C;
+            --color-slate: #4A4A4A;
+            --color-muted: #6B6B6B;
+            --color-accent: #1A3A52;
+            --color-accent-light: #2D5A7B;
+            --color-gold: #B8956E;
+            --color-gold-muted: #C4A882;
+            --color-border: #E8E4DE;
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Source Sans 3', 'Segoe UI', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 18px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-cream);
+            color: var(--color-charcoal);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(255, 254, 250, 0.97);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--color-border);
+            padding: 0.9rem 0;
+        }
+
+        .navbar-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--color-charcoal);
+            text-decoration: none;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .navbar-contact {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--color-slate);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .navbar-contact:hover {
+            color: var(--color-charcoal);
+        }
+
+        .navbar-cta {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: var(--color-warm-white);
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-decoration: none;
+            padding: 0.65rem 1.25rem;
+            border-radius: 3px;
+            transition: background-color 0.2s ease;
+        }
+
+        .navbar-cta:hover {
+            background-color: var(--color-accent-light);
+        }
+
+        /* Sticky CTA Bar */
+        .sticky-cta-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: var(--color-accent);
+            padding: 1rem 0;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .sticky-cta-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .sticky-cta-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+        }
+
+        .sticky-cta-text strong {
+            color: var(--color-warm-white);
+            font-weight: 600;
+        }
+
+        .sticky-cta-right {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .sticky-cta-price {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            color: var(--color-warm-white);
+            font-weight: 500;
+        }
+
+        .sticky-cta-button {
+            display: inline-block;
+            background-color: var(--color-gold);
+            color: var(--color-charcoal);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 3px;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .sticky-cta-button:hover {
+            background-color: var(--color-gold-muted);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 640px) {
+            .sticky-cta-text {
+                display: none;
+            }
+            .sticky-cta-container {
+                justify-content: center;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, var(--color-warm-white) 0%, var(--color-cream) 100%);
+            padding: 7rem 0 4rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .hero-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-image-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .hero-eyebrow {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 2.6rem;
+            font-weight: 500;
+            line-height: 1.2;
+            color: var(--color-charcoal);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-slate);
+            line-height: 1.75;
+        }
+
+        .hero-cta-group {
+            margin-top: 2rem;
+        }
+
+        .hero-cta-button {
+            display: inline-block;
+            background-color: var(--color-gold);
+            color: var(--color-charcoal);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-decoration: none;
+            padding: 1rem 1.75rem;
+            border-radius: 3px;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .hero-cta-button:hover {
+            background-color: var(--color-gold-muted);
+            transform: translateY(-1px);
+        }
+
+        .hero-guarantee {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--color-muted);
+        }
+
+        .hero-guarantee span {
+            display: inline-block;
+            margin-right: 1.25rem;
+        }
+
+        @media (max-width: 900px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-image {
+                max-width: 300px;
+            }
+
+            .hero-guarantee {
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .hero-guarantee span {
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 8rem 0 3rem;
+            }
+
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .hero-image {
+                max-width: 240px;
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 4.5rem 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 1.9rem;
+            font-weight: 500;
+            color: var(--color-charcoal);
+            margin-bottom: 1.75rem;
+            line-height: 1.3;
+        }
+
+        h3 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--color-charcoal);
+            margin-bottom: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        h3:first-of-type {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: var(--color-slate);
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        .lead {
+            font-size: 1.1rem;
+            color: var(--color-charcoal);
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background-color: var(--color-warm-white);
+        }
+
+        .quiet-list {
+            list-style: none;
+            margin: 2rem 0;
+            padding-left: 0;
+        }
+
+        .quiet-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-slate);
+        }
+
+        .quiet-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--color-gold-muted);
+        }
+
+        /* Promise Box */
+        .promise-box {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+            color: var(--color-warm-white);
+            padding: 3rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .promise-box p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+
+        .promise-box .qer {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--color-warm-white);
+            font-style: italic;
+            line-height: 1.5;
+            margin: 1.5rem 0;
+        }
+
+        /* Two Column */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 640px) {
+            .two-col {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .col-header {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .col-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .col-list li {
+            padding: 0.6rem 0;
+            color: var(--color-slate);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .col-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Use Cases */
+        .use-case {
+            padding: 1.75rem 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .use-case:last-of-type {
+            border-bottom: none;
+        }
+
+        .use-case-title {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--color-charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .use-case p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        .use-case-note {
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        /* Objections */
+        .objection {
+            background-color: var(--color-warm-white);
+            padding: 2rem;
+            margin-bottom: 1.25rem;
+            border-left: 3px solid var(--color-gold-muted);
+        }
+
+        .objection-question {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--color-charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .objection p {
+            font-size: 0.95rem;
+        }
+
+        /* Authority */
+        .authority-section {
+            background-color: var(--color-warm-white);
+        }
+
+        /* Ascension */
+        .ascension {
+            background: linear-gradient(180deg, var(--color-cream) 0%, #F5F2ED 100%);
+        }
+
+        .ascension-box {
+            border: 1px solid var(--color-border);
+            padding: 2.5rem;
+            background-color: var(--color-warm-white);
+        }
+
+        .ascension-label {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-muted);
+            margin-bottom: 1rem;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: var(--color-accent);
+            color: var(--color-warm-white);
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .cta-section h2 {
+            color: var(--color-warm-white);
+            margin-bottom: 1.25rem;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .cta-price {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--color-warm-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-price-note {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-gold);
+            color: var(--color-charcoal);
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            padding: 1.1rem 2.5rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--color-gold-muted);
+            transform: translateY(-1px);
+        }
+
+        .cta-qualifier {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 1.5rem;
+            font-style: italic;
+        }
+
+        .cta-guarantee {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .cta-guarantee span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .cta-guarantee svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 480px) {
+            .cta-guarantee {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-charcoal);
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+            padding: 2.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* Problem Section with Image */
+        .problem-content {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .problem-text {
+            order: 1;
+        }
+
+        .problem-image-wrapper {
+            order: 2;
+            position: sticky;
+            top: 100px;
+        }
+
+        .problem-image {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        @media (max-width: 800px) {
+            .problem-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .problem-image-wrapper {
+                order: -1;
+                position: static;
+            }
+
+            .problem-image {
+                max-width: 220px;
+                margin: 0 auto;
+                display: block;
+            }
+        }
+
+        /* Promise Section Image */
+        .promise-image {
+            display: block;
+            width: 240px;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+            margin: 2rem 0 0 0;
+        }
+
+        @media (max-width: 640px) {
+            .promise-image {
+                width: 180px;
+                margin: 1.5rem auto 0;
+            }
+        }
+
+        /* Objection Section Image */
+        .objection-image {
+            display: block;
+            width: 260px;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+            margin: 0 0 2rem 0;
+        }
+
+        @media (max-width: 640px) {
+            .objection-image {
+                width: 200px;
+                margin: 0 auto 1.5rem;
+            }
+        }
+
+        /* Authority Section with Image */
+        .authority-content {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        .authority-image-wrapper {
+            order: 1;
+        }
+
+        .authority-image {
+            width: 100%;
+            max-width: 240px;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .authority-text {
+            order: 2;
+        }
+
+        @media (max-width: 700px) {
+            .authority-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .authority-image-wrapper {
+                order: -1;
+                text-align: center;
+            }
+
+            .authority-image {
+                max-width: 200px;
+                margin: 0 auto;
+            }
+        }
+
+        /* CTA Section Image */
+        .cta-image {
+            display: block;
+            width: 220px;
+            height: auto;
+            margin: 0 auto 2rem;
+            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        @media (max-width: 480px) {
+            .cta-image {
+                width: 160px;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            html {
+                font-size: 16px;
+            }
+
+            .navbar-container {
+                flex-direction: column;
+                gap: 0.75rem;
+                text-align: center;
+            }
+
+            .navbar-links {
+                gap: 1rem;
+            }
+
+            .navbar-contact {
+                font-size: 0.8rem;
+            }
+
+            section {
+                padding: 3.5rem 0;
+            }
+
+            .promise-box {
+                padding: 2rem;
+            }
+
+            .promise-box .qer {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-brand">The Plain-English AI Playbook</a>
+            <div class="navbar-links">
+                <a href="mailto:hello@example.com" class="navbar-contact">Questions? Get in touch</a>
+                <a href="#get-started" class="navbar-cta">Start Saving 5+ Hours a Week</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="hero-eyebrow">For Professionals 55 and Over</p>
+                <h1>Save 5–10 Hours Every Week on Everyday Tasks—Without Learning Anything Technical</h1>
+                <p class="hero-subtitle">A plain-English playbook that gives you clarity and confidence with AI in 7 days. No jargon. No experimentation. No prior experience required.</p>
+                
+                <div class="hero-cta-group">
+                    <a href="#get-started" class="hero-cta-button">Start Saving 5–10 Hours a Week</a>
+                    <p class="hero-guarantee">
+                        <span>Instant PDF delivery</span>
+                        <span>30-day refund guarantee</span>
+                    </p>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="heroimage.jpg" alt="Professional reading in a quiet home study" class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Agitation -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="problem-content">
+                <div class="problem-text">
+                    <h2>You already know AI matters. That is not the problem.</h2>
+                    
+                    <p>The problem is the gap between knowing and doing.</p>
+                    
+                    <p>You have seen the headlines. You have heard colleagues mention it. You may have even opened ChatGPT once or twice—only to stare at a blank screen, uncertain what to type.</p>
+                    
+                    <ul class="quiet-list">
+                        <li>You are not sure what to ask it</li>
+                        <li>You are not sure if your question is "right"</li>
+                        <li>You do not want to look foolish in front of colleagues or staff</li>
+                        <li>You do not have hours to experiment and figure it out</li>
+                    </ul>
+                    
+                    <p>So you close the tab. And another week passes.</p>
+                    
+                    <p>Meanwhile, you watch others—sometimes less experienced, sometimes younger—move faster, seem more current, get more done. The gap widens quietly.</p>
+                    
+                    <p>This is not panic. This is recognition. And recognition is the first step to solving it.</p>
+                </div>
+                <div class="problem-image-wrapper">
+                    <img src="problemagitation.jpg" alt="Laptop with empty ChatGPT input field" class="problem-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reframe -->
+    <section>
+        <div class="container">
+            <h2>This is not about chasing the next shiny thing. It is about not being left behind.</h2>
+            
+            <p>AI is not a trend for early adopters to play with. It is infrastructure—like email was in 1998, or spreadsheets in 1985.</p>
+            
+            <p>The professionals who thrive in the next decade will not be those who understand AI deeply. They will be those who use it confidently for everyday tasks: correspondence, research, planning, comprehension.</p>
+            
+            <p>This is about staying competent. Staying relevant. Staying independent.</p>
+            
+            <p>It is about protecting your time, your reputation, and your ability to operate at the level you have always operated—without needing to rely on someone else to "do the AI part" for you.</p>
+            
+            <p>You have spent decades building expertise and judgment. AI does not replace that. It amplifies it—if you know how to direct it.</p>
+        </div>
+    </section>
+
+    <!-- The Promise -->
+    <section>
+        <div class="container">
+            <h2>What this playbook delivers</h2>
+            
+            <div class="promise-box">
+                <p class="qer">"Within 7 days, confidently use ChatGPT to save 5–10 hours per week on everyday tasks—without technical skills or trial-and-error."</p>
+                <p>Not months of learning. Not courses to complete. Not experiments to run.</p>
+                <p>Seven days to competence. Practical results from day one.</p>
+            </div>
+            
+            <p>This is not theoretical. This is operational. You will finish this playbook knowing exactly what to type, when to use it, and how to get reliable results—every time.</p>
+            <img src="thepromise.jpg" alt="Handwritten checklist showing hours saved" class="promise-image">
+        </div>
+    </section>
+
+    <!-- What This Is / Is Not -->
+    <section>
+        <div class="container">
+            <h2>Let me be clear about what this is</h2>
+            
+            <div class="two-col">
+                <div>
+                    <p class="col-header">This is not</p>
+                    <ul class="col-list">
+                        <li>A course with modules to complete</li>
+                        <li>Technical training</li>
+                        <li>An explanation of how AI works</li>
+                        <li>A collection of "prompts" to copy</li>
+                        <li>Experimentation or trial-and-error</li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="col-header">This is</p>
+                    <ul class="col-list">
+                        <li>A practical orientation</li>
+                        <li>Clarity on what AI is actually useful for</li>
+                        <li>Judgment on when to use it (and when not to)</li>
+                        <li>Exact language that works, with explanations</li>
+                        <li>Confidence built from understanding, not memorisation</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p style="margin-top: 2rem;">Think of it as the difference between being handed a phrase book versus understanding how to construct sentences. One makes you dependent. The other makes you capable.</p>
+        </div>
+    </section>
+
+    <!-- First Wins -->
+    <section>
+        <div class="container">
+            <h2>What you will be able to do—starting the same day</h2>
+            
+            <div class="use-case">
+                <p class="use-case-title">Draft and refine professional correspondence</p>
+                <p>Compose emails, letters, and responses in your voice—without staring at a blank page. Edit existing drafts for tone, clarity, or diplomacy.</p>
+                <p class="use-case-note">Without needing to understand how AI works.</p>
+            </div>
+            
+            <div class="use-case">
+                <p class="use-case-title">Summarise lengthy documents in minutes</p>
+                <p>Extract the key points from reports, articles, or meeting notes. Get the substance without reading every word.</p>
+                <p class="use-case-note">Without needing to understand how AI works.</p>
+            </div>
+            
+            <div class="use-case">
+                <p class="use-case-title">Plan travel and logistics with precision</p>
+                <p>Research destinations, compare options, and create detailed itineraries—factoring in your specific preferences and constraints.</p>
+                <p class="use-case-note">Without needing to understand how AI works.</p>
+            </div>
+            
+            <div class="use-case">
+                <p class="use-case-title">Comprehend contracts and formal documents</p>
+                <p>Translate legal or technical language into plain English. Identify key terms, obligations, and areas that warrant professional review.</p>
+                <p class="use-case-note">Without needing to understand how AI works.</p>
+            </div>
+            
+            <div class="use-case">
+                <p class="use-case-title">Catch up on any subject quickly</p>
+                <p>Get brought up to speed on unfamiliar topics, industries, or developments—at the depth you choose, without wading through search results.</p>
+                <p class="use-case-note">Without needing to understand how AI works.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objection Handling -->
+    <section>
+        <div class="container">
+            <h2>Addressing what you may be thinking</h2>
+            <img src="objectionhandling.jpg" alt="Hands typing a simple question on a laptop" class="objection-image">
+            
+            <div class="objection">
+                <p class="objection-question">"I am not technical."</p>
+                <p>Neither is this playbook. There is no installation. No settings to configure. No coding. If you can type an email, you can use this. The entire approach is built around plain English—because that is how AI is designed to be used.</p>
+            </div>
+            
+            <div class="objection">
+                <p class="objection-question">"I would not know what to ask."</p>
+                <p>That is precisely what this solves. You will receive exact language for common situations, with clear explanations of why it works. More importantly, you will understand the underlying pattern—so you can construct your own requests with confidence.</p>
+            </div>
+            
+            <div class="objection">
+                <p class="objection-question">"I will read it and forget it."</p>
+                <p>This is not theory to memorise. It is a reference you return to. Each section is designed for practical use—open it, apply it, close it. The playbook remains useful precisely because it is built for reference, not retention.</p>
+            </div>
+            
+            <div class="objection">
+                <p class="objection-question">"What if I do it wrong?"</p>
+                <p>There is no "wrong." AI is forgiving—it responds to what you ask and refines based on follow-up. The playbook teaches you how to iterate naturally, so imperfect first attempts become polished results. No mistakes. Only drafts.</p>
+            </div>
+            
+            <div class="objection">
+                <p class="objection-question">"I do not have time."</p>
+                <p>That is why this exists. You do not have time to experiment. You do not have time to take courses. You do not have time to watch tutorials. This playbook is designed to be read in an afternoon and applied immediately. The time investment is minimal. The time recovered is substantial.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authority -->
+    <section class="authority-section">
+        <div class="container">
+            <div class="authority-content">
+                <div class="authority-image-wrapper">
+                    <img src="authoritysection.jpg" alt="Professional desk with manuscript and notes" class="authority-image">
+                </div>
+                <div class="authority-text">
+                    <h2>Why this guide exists</h2>
+                    
+                    <p>I have spent the past two years working with AI daily—not as a technologist, but as a practitioner. Testing what works. Discarding what does not. Developing a clear, repeatable approach that produces reliable results.</p>
+                    
+                    <p>I wrote this playbook because I watched intelligent, accomplished people—lawyers, executives, consultants, retirees—struggle with a tool that should be making their lives easier. Not because they lacked capability. Because no one had translated it into language and frameworks that made sense to them.</p>
+                    
+                    <p>The technical community writes for technicians. The enthusiasts write with excitement but without clarity. What was missing was a guide written by someone who has already crossed the bridge—and can show others the path without the jargon, the hype, or the assumption that you want to "learn AI."</p>
+                    
+                    <p>You do not want to learn AI. You want to use it. This playbook respects that distinction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ascension -->
+    <section class="ascension">
+        <div class="container">
+            <h2>For some, this will be enough</h2>
+            
+            <p>Many readers will take this playbook, apply it, and have everything they need. That is the outcome I designed for.</p>
+            
+            <div class="ascension-box">
+                <p class="ascension-label">For those who want more</p>
+                <p>Some readers discover they want private guidance. Not because they cannot do it alone—but because they prefer to have someone in their corner. Someone to answer questions as they arise. Someone to review their specific use cases. Someone to ensure they are getting maximum value, without the trial-and-error.</p>
+                
+                <p style="margin-top: 1.25rem;">For those individuals, I offer a private implementation program. It is not advertised. It is not necessary. And it is only available to those who have read the playbook first.</p>
+                
+                <p style="margin-top: 1.25rem;">Details are included at the end of the guide—for those who find they want them.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="get-started">
+        <div class="container">
+            <h2>The Plain-English AI Playbook</h2>
+            <p>For professionals who value clarity over hype, competence over experimentation, and results over learning for its own sake.</p>
+            <img src="ctasection.jpg" alt="The Plain-English AI Playbook" class="cta-image">
+            
+            <p class="cta-price">£39</p>
+            <p class="cta-price-note">Delivered instantly to your inbox. Yours to keep forever.</p>
+            
+            <a href="#" class="cta-button">Start Saving 5–10 Hours a Week</a>
+            
+            <div class="cta-guarantee">
+                <span>
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    Instant PDF delivery
+                </span>
+                <span>
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    30-day full refund guarantee
+                </span>
+            </div>
+            
+            <p class="cta-qualifier">This is not for everyone. If you enjoy experimenting with new technology, you do not need this. If you prefer to figure things out yourself, you do not need this. This is for professionals who want clarity and confidence—without the learning curve.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sticky CTA Bar -->
+    <div class="sticky-cta-bar">
+        <div class="sticky-cta-container">
+            <p class="sticky-cta-text"><strong>Ready to reclaim your time?</strong> Instant delivery. 30-day refund guarantee.</p>
+            <div class="sticky-cta-right">
+                <span class="sticky-cta-price">£39</span>
+                <a href="#get-started" class="sticky-cta-button">Start Saving Hours</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
